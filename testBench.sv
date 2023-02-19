@@ -1,0 +1,70 @@
+
+`timescale 1ns/1ns
+module tb();
+  
+  reg clk, rst, start;
+  reg [4:0] inbus;
+  wire [4:0] outbus;
+  wire done;
+  
+  bothmult UUT(inbus, start, clk, rst, outbus, done);
+        
+
+  initial clk = 0;
+  
+  
+  always
+    #50 clk = !clk;
+    
+    
+  
+  initial
+  begin
+    inbus = $random;
+    start = 0;
+    rst = 1;
+    #200;
+    rst = 0;
+    #200;
+    start = 1;
+    #200;
+    start = 0;
+    #300;
+    inbus = $random;
+    #5000;
+    inbus = $random;
+    #100;
+    start = 1;
+    #200;
+    start = 0;
+    #300;
+    inbus = $random;
+    #5000;
+    inbus = $random; 
+    #100;
+    start = 1;
+    #200;
+    start = 0;
+    #300;
+    inbus = $random;
+    #5000;
+    inbus = $random;
+    #100;
+    start = 1;
+    #200;
+    start = 0;
+    #300;
+    inbus = $random;
+    #5000;
+    inbus = $random;
+    #100;
+    start = 1;
+    #200;
+    start = 0;
+    #300;
+    inbus = $random;
+    #5000;
+    $stop;
+  end  
+endmodule  
+

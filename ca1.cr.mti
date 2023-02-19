@@ -1,0 +1,57 @@
+C:/Users/Emertat/Desktop/sysdig2-ca1/counter.sv {1 {vlog -work work -sv -stats=none C:/Users/Emertat/Desktop/sysdig2-ca1/counter.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module counter
+
+Top level modules:
+	counter
+
+} {} {}} C:/Users/Emertat/Desktop/sysdig2-ca1/5bitShiftReg.sv {1 {vlog -work work -sv -stats=none C:/Users/Emertat/Desktop/sysdig2-ca1/5bitShiftReg.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module b5shiftreg
+
+Top level modules:
+	b5shiftreg
+
+} {} {}} C:/Users/Emertat/Desktop/sysdig2-ca1/5bitShiftRegCi.sv {1 {vlog -work work -sv -stats=none C:/Users/Emertat/Desktop/sysdig2-ca1/5bitShiftRegCi.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module b5shiftregci
+
+Top level modules:
+	b5shiftregci
+
+} {} {}} C:/Users/Emertat/Desktop/sysdig2-ca1/booth.sv {1 {vlog -work work -sv -stats=none C:/Users/Emertat/Desktop/sysdig2-ca1/booth.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module bothmult
+
+Top level modules:
+	bothmult
+
+} {} {}} C:/Users/Emertat/Desktop/sysdig2-ca1/controller.sv {1 {vlog -work work -sv -stats=none C:/Users/Emertat/Desktop/sysdig2-ca1/controller.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module controller
+
+Top level modules:
+	controller
+
+} {} {}} C:/Users/Emertat/Desktop/sysdig2-ca1/ALU.sv {1 {vlog -work work -sv -stats=none C:/Users/Emertat/Desktop/sysdig2-ca1/ALU.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module addSub
+
+Top level modules:
+	addSub
+
+} {} {}} C:/Users/Emertat/Desktop/sysdig2-ca1/5bitReg.sv {1 {vlog -work work -sv -stats=none C:/Users/Emertat/Desktop/sysdig2-ca1/5bitReg.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module b5reg
+
+Top level modules:
+	b5reg
+
+} {} {}} C:/Users/Emertat/Desktop/sysdig2-ca1/1bitReg.sv {1 {vlog -work work -sv -stats=none C:/Users/Emertat/Desktop/sysdig2-ca1/1bitReg.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module b1reg
+
+Top level modules:
+	b1reg
+
+} {} {}}

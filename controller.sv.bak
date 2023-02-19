@@ -1,0 +1,86 @@
+`timescale 1ns/1ns
+module controller(input clk, rst, start,
+     input [1:0] decision_bits,output logic ldX, ldY, lde, ldA, shA, shX, clrA, clrX, clre,
+      add, sub,finished, output logic [1:0] upload_selector);
+   
+    parameter Idle = 4'b0000,init = 4'b0001, loadX = 4'b0010, loadY = 4'b0011, decision = 4'b0100,
+    add_sub = 4'b0101, 
+    loadALU = 4'b0111, shift = 4'b1000, 
+    counter = 4'b1001, loop = 4'b1010, uploadX = 4'b1011, uploadA = 4'b1100, done =  4'b1101;
+    
+    
+    reg [3:0] PS, NS;
+    reg cnt, initZcnt, counter_is_done;
+   
+  // start, counter_is_done, decision_bits
+    always@(posedge clk,posedge rst ,posedge start) begin
+        NS = Idle;
+        {ldX, ldY, lde, ldA, cnt, shA, shX, clrA, clrX, clre,add, sub, finished, initZcnt} = 14'b0;
+        upload_selector = 2'b00;
+        case(PS)
+            Idle : begin 
+            NS = start ? init : Idle;
+        end
+        init : begin
+            clrX = 1;
+            clrA = 1;
+            clre = 1;
+            initZcnt = 1;
+            NS = start ? init : loadX;
+        end
+        loadX : begin
+          ldX = 1;
+          NS = loadY;
+        end
+        loadY : begin
+          ldY = 1;
+          NS = decision;
+        end
+        decision : begin
+            NS =  (decision_bits[1] ^ decision_bits[0]) ? add_sub : shift;
+        end
+        add_sub : begin
+            add = decision_bits[0] & ~decision_bits[1];
+            sub = ~decision_bits[0] & decision_bits[1];
+            NS = loadALU;
+        end
+        loadALU : begin 
+          ldA = 1;
+          NS = shift;
+        end
+        shift : begin
+            shA = 1;
+            shX = 1;
+            lde = 1;
+            NS = counter;
+        end
+        counter : begin
+            cnt = 1;
+            NS = loop;
+        end
+        loop : begin
+            NS = counter_is_done ? uploadX : decision;
+        end
+        uploadX : begin 
+            upload_selector = 2'b01;
+            NS = uploadA;
+        end
+        uploadA : begin 
+            upload_selector = 2'b10;
+            NS = done;
+        end
+        done : begin 
+            finished = 1;
+            NS = Idle;
+        end
+        default : NS = Idle;
+        endcase
+    end
+    
+    always@(posedge clk, posedge rst) begin
+    if(rst) PS = Idle ; else PS = NS ;
+    end
+    counter counter1(clk,rst,initZcnt,cnt,counter_is_done);
+endmodule
+
+
